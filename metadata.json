@@ -1,0 +1,6 @@
+{
+  "name": "Mihainoa ny Teny",
+  "description": "Application biblique trilingue (Malagasy, Français, English), prédications et formations de Solohery RAKOTOARISOA, études bibliques, exégèse hébraïque et grecque, commentaires et outils d'étude 100% hors ligne.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
