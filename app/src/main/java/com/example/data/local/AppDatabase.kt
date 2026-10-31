@@ -52,6 +52,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "mihainoa_ny_teny_database"
                 )
+                    .createFromAsset("database/mihainoa_ny_teny_prepopulated.db")
                     .addCallback(DatabaseCallback())
                     .fallbackToDestructiveMigration()
                     .build()

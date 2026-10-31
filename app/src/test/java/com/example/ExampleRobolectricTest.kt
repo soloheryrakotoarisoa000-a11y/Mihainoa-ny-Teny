@@ -13,6 +13,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
+import com.example.data.local.AppDatabase
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34])
@@ -108,5 +111,29 @@ class ExampleRobolectricTest {
         assertFalse(mg.quickWriteAction.isBlank())
         assertFalse(fr.quickWriteAction.isBlank())
         assertFalse(en.quickWriteAction.isBlank())
+    }
+
+    @Test
+    fun verifyPrepackagedDatabaseLoadsWithoutSchemaError() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val database = com.example.data.local.AppDatabase.getDatabase(context)
+        kotlinx.coroutines.runBlocking {
+            val genesis11Mbp = database.bibleDao().getVerse(1, 1, 1, "MBP")
+            assertNotNull(genesis11Mbp)
+            assertTrue(genesis11Mbp!!.text.contains("voalohany", ignoreCase = true))
+
+            val genesis11Lsg = database.bibleDao().getVerse(1, 1, 1, "LSG1910")
+            assertNotNull(genesis11Lsg)
+            assertTrue(genesis11Lsg!!.text.contains("commencement", ignoreCase = true))
+
+            val genesis11Kjv = database.bibleDao().getVerse(1, 1, 1, "KJV")
+            assertNotNull(genesis11Kjv)
+            assertTrue(genesis11Kjv!!.text.contains("beginning", ignoreCase = true))
+
+            // Test publications authored by Solohery RAKOTOARISOA
+            val publications = database.publicationDao().getAllPublishedFlow().first()
+            assertTrue(publications.isNotEmpty())
+            assertTrue(publications.all { it.author == "Solohery RAKOTOARISOA" })
+        }
     }
 }

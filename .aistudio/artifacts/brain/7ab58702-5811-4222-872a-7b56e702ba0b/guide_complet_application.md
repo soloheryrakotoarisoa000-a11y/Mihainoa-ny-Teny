@@ -21,9 +21,9 @@ Elle offre un accès libre et direct aux prédications, conférences, enseigneme
 
 | Sigle | Nom complet | Langue | Statut | Particularités |
 | :--- | :--- | :--- | :--- | :--- |
-| **MBP** | Baiboly Malagasy Protestanta (1908) | Malagasy | 100% Embarqué | Texte historique de référence à Madagascar |
-| **LSG 1910** | Louis Segond (1910) | Français | 100% Embarqué | Version classique francophone du domaine public |
-| **KJV** | King James Version (1611/1769) | English | 100% Embarqué | Texte biblique anglophone traditionnel de référence |
+| **MBP** | Baiboly Malagasy Protestanta (1908) | Malagasy | **100% Complet (31 099 versets)** | Les 66 livres intégraux de Genesisy à Apokalypsy |
+| **LSG 1910** | Louis Segond (1910) | Français | **100% Complet (31 102 versets)** | Les 66 livres intégraux de Genèse à Apocalypse |
+| **KJV** | King James Version (1611/1769) | English | **100% Complet (31 102 versets)** | Les 66 livres intégraux de Genesis à Revelation |
 | **BHS** | Biblia Hebraica Stuttgartensia | Hébreu | 100% Embarqué | Ancien Testament original avec support RTL et morphologie |
 | **NA28** | Novum Testamentum Graece | Grec koinè | 100% Embarqué | Nouveau Testament original avec lemmes et numéros Strong |
 | **DIEM** | Dikan-teny Iombonana Eny Madagasikara | Malagasy | En attente | Indication claire de respect des droits éditoriaux |
