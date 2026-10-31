@@ -2,6 +2,11 @@
 ## Application Biblique Trilingue, Bibliothèque de Prédications & Centre de Formation Chrétienne
 
 **Créateur et Responsable éditorial :** Solohery RAKOTOARISOA  
+**Devise et Verset Biblique Thématique :**
+- **Malagasy :** *« Ny lanitra sy ny tany ho levona, fa ny teniko tsy mba ho levona. » _Marka 13.31*
+- **Français :** *« Le ciel et la terre passeront, mais mes paroles ne passeront point. » _Marc 13:31*
+- **English :** *« Heaven and earth shall pass away: but my words shall not pass away. » _Mark 13:31*
+
 **Signatures officielles :**
 - **Malagasy :** *« Mihainoa ny Tenin'Andriamanitra »*
 - **Français :** *« Écoutez la Parole de Dieu »*
@@ -17,16 +22,15 @@ Elle offre un accès libre et direct aux prédications, conférences, enseigneme
 
 ---
 
-## 2. Versions Bibliques Intégrées
+## 2. Versions Bibliques 100% Complètes Uniquement (Tsy misy banga)
+
+Toutes les versions incomplètes ou partielles ont été **strictement supprimées**. L'application contient exclusivement des Bibles intégrales couvrant la totalité des 66 livres canoniques de la Genèse à l'Apocalypse :
 
 | Sigle | Nom complet | Langue | Statut | Particularités |
 | :--- | :--- | :--- | :--- | :--- |
 | **MBP** | Baiboly Malagasy Protestanta (1908) | Malagasy | **100% Complet (31 099 versets)** | Les 66 livres intégraux de Genesisy à Apokalypsy |
 | **LSG 1910** | Louis Segond (1910) | Français | **100% Complet (31 102 versets)** | Les 66 livres intégraux de Genèse à Apocalypse |
 | **KJV** | King James Version (1611/1769) | English | **100% Complet (31 102 versets)** | Les 66 livres intégraux de Genesis à Revelation |
-| **BHS** | Biblia Hebraica Stuttgartensia | Hébreu | 100% Embarqué | Ancien Testament original avec support RTL et morphologie |
-| **NA28** | Novum Testamentum Graece | Grec koinè | 100% Embarqué | Nouveau Testament original avec lemmes et numéros Strong |
-| **DIEM** | Dikan-teny Iombonana Eny Madagasikara | Malagasy | En attente | Indication claire de respect des droits éditoriaux |
 
 ---
 

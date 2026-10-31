@@ -42,39 +42,6 @@ object PrepopulatedData {
             license = "Public Domain (Domaine public)",
             isInstalled = true,
             isOriginalText = false
-        ),
-        BibleVersionEntity(
-            code = "BHS",
-            name = "Biblia Hebraica Stuttgartensia (Hébreu biblique)",
-            language = "he",
-            edition = "Texte massorétique du Codex de Léningrad B19A",
-            publisher = "Deutsche Bibelgesellschaft (Corpus d'étude)",
-            source = "Corpus exégétique d'étude de l'Ancien Testament",
-            license = "Usage d'étude exégétique / Domaine public massorétique",
-            isInstalled = true,
-            isOriginalText = true
-        ),
-        BibleVersionEntity(
-            code = "NA28",
-            name = "Novum Testamentum Graece / Textus Receptus (Grec koinè)",
-            language = "grc",
-            edition = "Institut für Neutestamentliche Textforschung / TR",
-            publisher = "Corpus d'étude biblique du Nouveau Testament",
-            source = "Textes originaux grecs du Nouveau Testament",
-            license = "Usage d'étude et de formation théologique",
-            isInstalled = true,
-            isOriginalText = true
-        ),
-        BibleVersionEntity(
-            code = "DIEM",
-            name = "Dikanteny Iombonana Eto Madagasikara (DIEM)",
-            language = "mg",
-            edition = "Fandikan-teny iombonana ekimenika",
-            publisher = "Fikambanana Mampiely Baiboly Malagasy (FMBM)",
-            source = "FMBM",
-            license = "Texte sous droits d'auteur réservés (En attente d'autorisation formelle)",
-            isInstalled = false,
-            isOriginalText = false
         )
     )
 

@@ -165,7 +165,11 @@ data class AppTranslations(
     val adminModeActive: String,
     val livePreview: String,
     val formattingTools: String,
-    val allScripturesCopiable: String
+    val allScripturesCopiable: String,
+
+    // Theme Scripture Verse (Mark 13:31)
+    val themeVerseText: String,
+    val themeVerseRef: String
 )
 
 object I18nManager {
@@ -316,7 +320,9 @@ object I18nManager {
         adminModeActive = "Fomba Mpitantana mavitrika (Solohery RAKOTOARISOA)",
         livePreview = "Fijerena mialoha ny lahatsoratra",
         formattingTools = "Fitaovana fandrafetana",
-        allScripturesCopiable = "Azo adika avokoa ny andininy sy lahatsoratra rehetra"
+        allScripturesCopiable = "Azo adika avokoa ny andininy sy lahatsoratra rehetra",
+        themeVerseText = "Ny lanitra sy ny tany ho levona, fa ny teniko tsy mba ho levona.",
+        themeVerseRef = "Marka 13.31"
     )
 
     val frenchTranslations = AppTranslations(
@@ -466,7 +472,9 @@ object I18nManager {
         adminModeActive = "Session Auteur active (Solohery RAKOTOARISOA)",
         livePreview = "Aperçu de la publication",
         formattingTools = "Outils de mise en forme",
-        allScripturesCopiable = "Tous les textes et versets sont copiables"
+        allScripturesCopiable = "Tous les textes et versets sont copiables",
+        themeVerseText = "Le ciel et la terre passeront, mais mes paroles ne passeront point.",
+        themeVerseRef = "Marc 13:31"
     )
 
     val englishTranslations = AppTranslations(
@@ -616,7 +624,9 @@ object I18nManager {
         adminModeActive = "Author Session Active (Solohery RAKOTOARISOA)",
         livePreview = "Live Preview",
         formattingTools = "Formatting tools",
-        allScripturesCopiable = "All scriptures and texts can be easily copied"
+        allScripturesCopiable = "All scriptures and texts can be easily copied",
+        themeVerseText = "Heaven and earth shall pass away: but my words shall not pass away.",
+        themeVerseRef = "Mark 13:31"
     )
 
     fun get(language: AppLanguage): AppTranslations = when (language) {

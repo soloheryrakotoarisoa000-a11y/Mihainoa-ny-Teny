@@ -159,14 +159,11 @@ c.execute("""
 INSERT OR REPLACE INTO room_master_table (id, identity_hash) VALUES(42, 'f319e220d2f7611f0c5dfb11662dd6de')
 """)
 
-# 2. Insert Bible Versions
+# 2. Insert Complete Bible Versions (100% of 66 books, 31,000+ verses each)
 versions_data = [
     ("MBP", "Baiboly Malagasy Protestanta", "mg", "1908", "Fikambanana Mampiely Baiboly Malagasy", "Trano Printy Protestanta Imarivolanitra", "Domaine public", 1, 0),
     ("LSG1910", "Louis Segond 1910", "fr", "1910", "Alliance Biblique Française", "Société Biblique Britannique et Étrangère", "Domaine public", 1, 0),
-    ("KJV", "King James Version (Authorized)", "en", "1769/1611", "Church of England / University Press", "Cambridge Standard Text", "Public Domain", 1, 0),
-    ("BHS", "Biblia Hebraica Stuttgartensia", "he", "1997", "Deutsche Bibelgesellschaft", "Codex Leningradensis B19A", "Texte académique de recherche", 1, 1),
-    ("NA28", "Novum Testamentum Graece (NA28 / TR)", "grc", "28e éd.", "Deutsche Bibelgesellschaft", "Institut für Neutestamentliche Textforschung Münster", "Texte académique de recherche", 1, 1),
-    ("DIEM", "Dikan-teny Iombonana Eny Madagasikara", "mg", "2004", "Fikambanana Mampiely Baiboly Malagasy (FMBM)", "FMBM Antananarivo", "Droits réservés - En attente d'accord", 0, 0)
+    ("KJV", "King James Version (Authorized)", "en", "1769/1611", "Church of England / University Press", "Cambridge Standard Text", "Public Domain", 1, 0)
 ]
 c.executemany("INSERT INTO bible_versions VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", versions_data)
 
@@ -371,19 +368,7 @@ print(f"Inserting {len(kjv_verses)} English verses...")
 c.executemany("INSERT INTO bible_verses(bookNumber, chapter, verse, versionCode, text) VALUES (?, ?, ?, ?, ?)", kjv_verses)
 conn.commit()
 
-# Add BHS & NA28 original language key verses
-original_verses = [
-    (1, 1, 1, "BHS", "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃"),
-    (1, 1, 2, "BHS", "וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃"),
-    (1, 1, 3, "BHS", "וַיֹּ֥אמֶר אֱלֹהִ֖ים יְהִ֣י א֑וֹר וַֽיְהִי־אֽוֹר׃"),
-    (19, 23, 1, "BHS", "מִזְמ֥וֹר לְדָוִ֑ד יְהוָ֥ה רֹ֝עִ֗י לֹ֣א אֶחְסָֽר׃"),
-    (19, 23, 2, "BHS", "בִּנְא֣וֹת דֶּ֭שֶׁא יַרְבִּיצֵ֑נִי עַל־מֵ֖י מְנֻח֣וֹת יְנַהֲלֵֽנִי׃"),
-    (43, 1, 1, "NA28", "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος."),
-    (43, 1, 2, "NA28", "οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν."),
-    (43, 1, 14, "NA28", "Καὶ ὁ λόγος σὰρξ ἐγένετο καὶ ἐσκήνωσεν ἐν ἡμῖν, καὶ ἐθεασάμεθα τὴν δόξαν αὐτοῦ, δόξαν ὡς μονογενοῦς παρὰ πατρός, πλήρης χάριτος καὶ ἀληθείας.")
-]
-c.executemany("INSERT INTO bible_verses(bookNumber, chapter, verse, versionCode, text) VALUES (?, ?, ?, ?, ?)", original_verses)
-
+# Only 100% complete Bibles are stored in bible_verses (MBP, LSG1910, KJV)
 conn.commit()
 
 c.execute("SELECT COUNT(*) FROM bible_verses")

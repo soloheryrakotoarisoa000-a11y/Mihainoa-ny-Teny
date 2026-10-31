@@ -81,7 +81,7 @@ fun BibleCompareScreen(
     var selectedVerse by remember { mutableIntStateOf(initialVerse) }
     var isStackedLayout by remember { mutableStateOf(true) }
 
-    val selectedVersionCodes = remember { mutableStateListOf("MBP", "LSG1910", "NA28", "BHS") }
+    val selectedVersionCodes = remember { mutableStateListOf("MBP", "LSG1910", "KJV") }
 
     val books by repository.bibleBooks.collectAsState(initial = emptyList())
     val versions by repository.bibleVersions.collectAsState(initial = emptyList())

@@ -48,12 +48,13 @@ class ExampleRobolectricTest {
 
     @Test
     fun verifyPrepopulatedDataIntegrity() {
-        // Versions
+        // Complete Bibles only (MBP, LSG1910, KJV) - No incomplete Bibles
+        assertEquals(3, PrepopulatedData.versions.size)
         assertTrue(PrepopulatedData.versions.any { it.code == "MBP" && it.isInstalled })
         assertTrue(PrepopulatedData.versions.any { it.code == "LSG1910" && it.isInstalled })
-        assertTrue(PrepopulatedData.versions.any { it.code == "BHS" && it.isOriginalText })
-        assertTrue(PrepopulatedData.versions.any { it.code == "NA28" && it.isOriginalText })
-        assertTrue(PrepopulatedData.versions.any { it.code == "DIEM" && !it.isInstalled })
+        assertTrue(PrepopulatedData.versions.any { it.code == "KJV" && it.isInstalled })
+        // Verify incomplete versions are completely removed
+        assertFalse(PrepopulatedData.versions.any { it.code == "BHS" || it.code == "NA28" || it.code == "DIEM" })
 
         // Books (66 canonical books)
         assertEquals(66, PrepopulatedData.books.size)
@@ -111,6 +112,12 @@ class ExampleRobolectricTest {
         assertFalse(mg.quickWriteAction.isBlank())
         assertFalse(fr.quickWriteAction.isBlank())
         assertFalse(en.quickWriteAction.isBlank())
+
+        // Theme verse Marka 13:31
+        assertEquals("Ny lanitra sy ny tany ho levona, fa ny teniko tsy mba ho levona.", mg.themeVerseText)
+        assertEquals("Marka 13.31", mg.themeVerseRef)
+        assertEquals("Le ciel et la terre passeront, mais mes paroles ne passeront point.", fr.themeVerseText)
+        assertEquals("Heaven and earth shall pass away: but my words shall not pass away.", en.themeVerseText)
     }
 
     @Test
@@ -129,6 +136,19 @@ class ExampleRobolectricTest {
             val genesis11Kjv = database.bibleDao().getVerse(1, 1, 1, "KJV")
             assertNotNull(genesis11Kjv)
             assertTrue(genesis11Kjv!!.text.contains("beginning", ignoreCase = true))
+
+            // Verify Mark 13:31 (Book 41, Chapter 13, Verse 31) in all 3 complete bibles
+            val mark1331Mbp = database.bibleDao().getVerse(41, 13, 31, "MBP")
+            assertNotNull(mark1331Mbp)
+            assertTrue(mark1331Mbp!!.text.contains("lanitra", ignoreCase = true))
+
+            val mark1331Lsg = database.bibleDao().getVerse(41, 13, 31, "LSG1910")
+            assertNotNull(mark1331Lsg)
+            assertTrue(mark1331Lsg!!.text.contains("ciel", ignoreCase = true))
+
+            val mark1331Kjv = database.bibleDao().getVerse(41, 13, 31, "KJV")
+            assertNotNull(mark1331Kjv)
+            assertTrue(mark1331Kjv!!.text.contains("heaven", ignoreCase = true))
 
             // Test publications authored by Solohery RAKOTOARISOA
             val publications = database.publicationDao().getAllPublishedFlow().first()
